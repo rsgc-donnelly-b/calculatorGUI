@@ -1,12 +1,20 @@
-//row 1 values
+//First x value
 int x1 = 0;
+//y value 1
 int y1 = 80;
+//Length 1
 float l1 = 67.5;
+//Width 1
 int width1 = 78;
 int colorwhenpressed = 220;
 boolean numberisvisible = false;
 int number7 = 7;
 int coloredbutton = #F5942C;
+int x2 = 135;
+float x3 = 202.5;
+int y2 = 158;
+int y3 = 236;
+int y4 = 314;
 //setup
 void setup() {
   //Calculator buttons layed out
@@ -27,11 +35,11 @@ void draw() {
   rect(x1, y1, l1, width1);
   fill(220);
   rect(l1, y1, l1, width1);
-  rect(135, 80, 67.5, 78);
+  rect(x2, y1, l1, width1);
 
   //Orange button
   fill(coloredbutton);
-  rect(202.5, 80, 67.5, 78);
+  rect(x3, y1, l1, width1);
 
   //Resetting the fill for the second row
   fill(220);
@@ -39,26 +47,26 @@ void draw() {
   //Second row
 
   //Changing it to 160 sent the buttons down a bit for some reason. I settled on 158
-  rect(0, 158, 67.5, 78);
-  rect(67.5, 158, 67.5, 78);
-  rect(135, 158, 67.5, 78);
+  rect(x1, y2, l1, width1);
+  rect(l1, y2, l1, width1);
+  rect(x2, y2, l1, width1);
 
   //Orange button
   fill(coloredbutton);
-  rect(202.5, 158, 67.5, 78);
+  rect(x3, y2, l1, width1);
 
 
   //Resetting the fill for the second row
   fill(220);
 
   //Changing it to 160 sent the buttons down a bit for some reason. I settled on 158
-  rect(0, 236, 67.5, 78);
-  rect(67.5, 236, 67.5, 78);
-  rect(135, 236, 67.5, 78);
+  rect(x1, y3, l1, width1);
+  rect(l1, y3, l1, width1);
+  rect(x2, y3, l1, width1);
 
   //Orange button
   fill(coloredbutton);
-  rect(202.5, 236, 67.5, 78);
+  rect(x3, y3, l1, width1);
 
   //Had to decrease the y value
 
@@ -66,13 +74,12 @@ void draw() {
   fill(220);
 
   //Changing it to 160 sent the buttons down a bit for some reason. I settled on 158
-  rect(0, 314, 135, 78);
-  // rect(67.5, 314, 67.5, 78);
-  rect(135, 314, 67.5, 78);
+  rect(x1, y4, x2, width1);
+  rect(x2, y4, l1, width1);
 
   //Orange button
   fill(coloredbutton);
-  rect(202.5, 314, 67.5, 78);
+  rect(x3, y4, l1, width1);
 
   //Numbers on the actual buttons
   fill(0);
@@ -130,19 +137,99 @@ void mousePressed() {
   if (mouseX>x1 && mouseX <x1+width1 && mouseY>y1 && mouseY <y1+width1) {
     println("test7");
     fill(255);
-    numberisvisible = true;
+    //numberisvisible = true;
   } 
   //Detects if the 8 on the screen is pressed
   if (mouseX>l1 && mouseX <l1+width1 && mouseY>y1 && mouseY <y1+width1) {
     println("test8");
     fill(255);
   }
+  //Detects if the 8 on the screen is pressed
+  if (mouseX>x2 && mouseX <x2+width1 && mouseY>y1 && mouseY <y1+width1) {
+    println("test9");
+    fill(255);
+  }
+  //Detects if the division symbol is pressed
+   if (mouseX>x3 && mouseX <x3+width1 && mouseY>y1 && mouseY <y1+width1) {
+    println("test/");
+    fill(255);
+  }
+  //row 2
+  //rect(x1, y2, l1, width1);
+  //Detects if the 4 button is pressed
+  if (mouseX>x1 && mouseX <x1+width1 && mouseY>y2 && mouseY <y2+width1) {
+    println("test4");
+    fill(255);
+  }
+  //Detects if the 5 button is pressed
+  if (mouseX>l1 && mouseX <l1+width1 && mouseY>y2 && mouseY <y2+width1) {
+    println("test5");
+    fill(255);
+  }
+  //Detects if the 6 button is pressed
+  if (mouseX>x2 && mouseX <x2+width1 && mouseY>y2 && mouseY <y2+width1) {
+    println("test6");
+    fill(255);
+  }
+  //Detects if the multiplication symbol is pressed
+  if (mouseX>x3 && mouseX <x3+width1 && mouseY>y2 && mouseY <y2+width1) {
+    println("test*");
+    fill(255);
+  }
+  //Detects if the one button is pressed
+  if (mouseX>x1 && mouseX <x1+width1 && mouseY>y3 && mouseY <y3+width1) {
+    println("test1");
+    fill(255);
+    //numberisvisible = true;
+  }
+  //Detects if 2 is pressed
+  if (mouseX>l1 && mouseX <l1+width1 && mouseY>y3 && mouseY <y3+width1) {
+    println("test2");
+    fill(255);
+  }
+  //Detects if the 3 on the screen is pressed
+  if (mouseX>x2 && mouseX <x2+width1 && mouseY>y3 && mouseY <y3+width1) {
+    println("test3");
+    fill(255);
+  }
+  //Detects if the plus symbol is pressed
+   if (mouseX>x3 && mouseX <x3+width1 && mouseY>y3 && mouseY <y3+width1) {
+    println("test+");
+    fill(255);
+  }
+  //Detects if the 0 button is pressed
+  if (mouseX>x1 && mouseX <l1+width1 && mouseY>y4 && mouseY <y4+width1) {
+    println("test0");
+    fill(255);
+    //numberisvisible = true;
+  } 
+  //Detects if the = on the screen is pressed
+  if (mouseX>x2 && mouseX <x2+width1 && mouseY>y4 && mouseY <y4+width1) {
+    println("test=");
+    fill(255);
+  }
+  //Detects if the division symbol is pressed
+   if (mouseX>x3 && mouseX <x3+width1 && mouseY>y4 && mouseY <y4+width1) {
+    println("test-");
+    fill(255);
+  }
 }
 void keyPressed() {
+  //Custom colours - theme
+  //blue
   if (key == 'b') {
     coloredbutton = #00B9FF;
   }
+  //orange
   if (key == 'o') {
     coloredbutton = #F5942C;
+  }
+  //red
+  if (key == 'r') {
+    coloredbutton = #FF0004;
+  }
+  //green
+  if (key == 'g') {
+    coloredbutton = #00FF63;
   }
 }
