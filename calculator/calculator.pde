@@ -7,25 +7,28 @@ float l1 = 67.5;
 //Width 1
 int width1 = 78;
 int colorwhenpressed = 220;
-boolean numberisvisible = false;
-int number7 = 7;
 int coloredbutton = #F5942C;
 int x2 = 135;
 float x3 = 202.5;
 int y2 = 158;
 int y3 = 236;
 int y4 = 314;
+
+String LCD = "";
 //setup
 void setup() {
   //Calculator buttons layed out
   size(270, 390);
 
   //Top part of the calculator where numbers will be displayed
-  background(100);
 }
 
 void draw() {
-
+  
+  
+  background(100);
+  
+  textAlign(LEFT);
   fill(colorwhenpressed);
   //adjusting the stroke weight so that it doesn't clunky
   strokeWeight(.5);
@@ -84,7 +87,7 @@ void draw() {
   //Numbers on the actual buttons
   fill(0);
   PFont font;
-  font = loadFont("Times.vlw");
+  font = loadFont("HelveticaNeue-Light-48.vlw");
   textFont(font, 40);
 
   //row 1
@@ -127,90 +130,107 @@ void draw() {
   fill(255);
   //To properly center add 65 to the numbers on the orange rather than 70
   text("-", 230, 366);
-  if (numberisvisible) {
-    text(""+number7, 225, 54);
-  }
+  
+  textAlign(RIGHT);
+  text(LCD, 250, 54);
 }
 
 void mousePressed() {
+
+  PFont font;
+  font = loadFont("HelveticaNeue-Light-48.vlw");
+  textFont(font, 40);
   // Detects if the 7 on the screen is pressed
   if (mouseX>x1 && mouseX <x1+width1 && mouseY>y1 && mouseY <y1+width1) {
     println("test7");
-    fill(255);
-    //numberisvisible = true;
+    LCD += "7";
   } 
   //Detects if the 8 on the screen is pressed
   if (mouseX>l1 && mouseX <l1+width1 && mouseY>y1 && mouseY <y1+width1) {
     println("test8");
-    fill(255);
+    LCD += "8";
   }
   //Detects if the 8 on the screen is pressed
   if (mouseX>x2 && mouseX <x2+width1 && mouseY>y1 && mouseY <y1+width1) {
     println("test9");
     fill(255);
+    LCD += "9";
   }
   //Detects if the division symbol is pressed
-   if (mouseX>x3 && mouseX <x3+width1 && mouseY>y1 && mouseY <y1+width1) {
+  if (mouseX>x3 && mouseX <x3+width1 && mouseY>y1 && mouseY <y1+width1) {
     println("test/");
     fill(255);
+    LCD += "÷";
   }
   //row 2
   //rect(x1, y2, l1, width1);
   //Detects if the 4 button is pressed
   if (mouseX>x1 && mouseX <x1+width1 && mouseY>y2 && mouseY <y2+width1) {
     println("test4");
+    LCD += "4";
     fill(255);
   }
   //Detects if the 5 button is pressed
   if (mouseX>l1 && mouseX <l1+width1 && mouseY>y2 && mouseY <y2+width1) {
     println("test5");
+    LCD += "5";
     fill(255);
   }
   //Detects if the 6 button is pressed
   if (mouseX>x2 && mouseX <x2+width1 && mouseY>y2 && mouseY <y2+width1) {
     println("test6");
     fill(255);
+    LCD += "6";
   }
   //Detects if the multiplication symbol is pressed
   if (mouseX>x3 && mouseX <x3+width1 && mouseY>y2 && mouseY <y2+width1) {
     println("test*");
+    LCD += "×";
     fill(255);
   }
   //Detects if the one button is pressed
   if (mouseX>x1 && mouseX <x1+width1 && mouseY>y3 && mouseY <y3+width1) {
     println("test1");
+    LCD += "1";
     fill(255);
+    
     //numberisvisible = true;
   }
   //Detects if 2 is pressed
   if (mouseX>l1 && mouseX <l1+width1 && mouseY>y3 && mouseY <y3+width1) {
     println("test2");
+    LCD += "2";
     fill(255);
   }
   //Detects if the 3 on the screen is pressed
   if (mouseX>x2 && mouseX <x2+width1 && mouseY>y3 && mouseY <y3+width1) {
     println("test3");
+    LCD += "3";
     fill(255);
   }
   //Detects if the plus symbol is pressed
-   if (mouseX>x3 && mouseX <x3+width1 && mouseY>y3 && mouseY <y3+width1) {
+  if (mouseX>x3 && mouseX <x3+width1 && mouseY>y3 && mouseY <y3+width1) {
     println("test+");
+    LCD += "+";
     fill(255);
   }
   //Detects if the 0 button is pressed
   if (mouseX>x1 && mouseX <l1+width1 && mouseY>y4 && mouseY <y4+width1) {
     println("test0");
+    LCD += "0";
     fill(255);
     //numberisvisible = true;
   } 
   //Detects if the = on the screen is pressed
   if (mouseX>x2 && mouseX <x2+width1 && mouseY>y4 && mouseY <y4+width1) {
     println("test=");
+    LCD += "=";
     fill(255);
   }
-  //Detects if the division symbol is pressed
-   if (mouseX>x3 && mouseX <x3+width1 && mouseY>y4 && mouseY <y4+width1) {
+  //Detects if the minus symbol is pressed
+  if (mouseX>x3 && mouseX <x3+width1 && mouseY>y4 && mouseY <y4+width1) {
     println("test-");
+    LCD += "-";
     fill(255);
   }
 }
@@ -231,5 +251,13 @@ void keyPressed() {
   //green
   if (key == 'g') {
     coloredbutton = #00FF63;
+  }
+
+  if (key == 'y') {
+    coloredbutton = #E8ED00;
+  }
+  //#A202DE
+  if (key == 'v') {
+    coloredbutton = #A202DE;
   }
 }
