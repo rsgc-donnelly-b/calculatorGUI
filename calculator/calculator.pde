@@ -260,4 +260,7 @@ void keyPressed() {
   if (key == 'v') {
     coloredbutton = #A202DE;
   }
+  if (key == 'c') {
+    LCD = "";
+  }
 }
