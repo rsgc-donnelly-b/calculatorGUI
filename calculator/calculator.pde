@@ -15,6 +15,11 @@ int y3 = 236;
 int y4 = 314;
 
 String LCD = "";
+
+float memoryAddress1 = 0;
+float memoryAddress2 = -1;
+int operator = 0;
+
 //setup
 void setup() {
   //Calculator buttons layed out
@@ -24,10 +29,10 @@ void setup() {
 }
 
 void draw() {
-  
-  
+
+
   background(100);
-  
+
   textAlign(LEFT);
   fill(colorwhenpressed);
   //adjusting the stroke weight so that it doesn't clunky
@@ -130,108 +135,154 @@ void draw() {
   fill(255);
   //To properly center add 65 to the numbers on the orange rather than 70
   text("-", 230, 366);
-  
+
   textAlign(RIGHT);
   text(LCD, 250, 54);
 }
 
 void mousePressed() {
+  //PFont font;
+  //font = loadFont("HelveticaNeue-Light-48.vlw");
+  //textFont(font, 40);
 
-  PFont font;
-  font = loadFont("HelveticaNeue-Light-48.vlw");
-  textFont(font, 40);
-  // Detects if the 7 on the screen is pressed
-  if (mouseX>x1 && mouseX <x1+width1 && mouseY>y1 && mouseY <y1+width1) {
-    println("test7");
-    LCD += "7";
-  } 
-  //Detects if the 8 on the screen is pressed
-  if (mouseX>l1 && mouseX <l1+width1 && mouseY>y1 && mouseY <y1+width1) {
-    println("test8");
-    LCD += "8";
+  //Detects if 0 is pressed
+  if (mouseX>x1 && mouseX <l1+width1 && mouseY>y4 && mouseY <y4+width1) {
+    println("test0");
+    LCD += "0";
+    memoryAddress1 *= 10;
   }
-  //Detects if the 8 on the screen is pressed
-  if (mouseX>x2 && mouseX <x2+width1 && mouseY>y1 && mouseY <y1+width1) {
-    println("test9");
-    fill(255);
-    LCD += "9";
-  }
-  //Detects if the division symbol is pressed
-  if (mouseX>x3 && mouseX <x3+width1 && mouseY>y1 && mouseY <y1+width1) {
-    println("test/");
-    fill(255);
-    LCD += "÷";
-  }
-  //row 2
-  //rect(x1, y2, l1, width1);
-  //Detects if the 4 button is pressed
-  if (mouseX>x1 && mouseX <x1+width1 && mouseY>y2 && mouseY <y2+width1) {
-    println("test4");
-    LCD += "4";
-    fill(255);
-  }
-  //Detects if the 5 button is pressed
-  if (mouseX>l1 && mouseX <l1+width1 && mouseY>y2 && mouseY <y2+width1) {
-    println("test5");
-    LCD += "5";
-    fill(255);
-  }
-  //Detects if the 6 button is pressed
-  if (mouseX>x2 && mouseX <x2+width1 && mouseY>y2 && mouseY <y2+width1) {
-    println("test6");
-    fill(255);
-    LCD += "6";
-  }
-  //Detects if the multiplication symbol is pressed
-  if (mouseX>x3 && mouseX <x3+width1 && mouseY>y2 && mouseY <y2+width1) {
-    println("test*");
-    LCD += "×";
-    fill(255);
-  }
-  //Detects if the one button is pressed
+
+  //Detects if 1 is pressed
   if (mouseX>x1 && mouseX <x1+width1 && mouseY>y3 && mouseY <y3+width1) {
     println("test1");
     LCD += "1";
-    fill(255);
-    
-    //numberisvisible = true;
+    memoryAddress1 *= 10;
+    memoryAddress1 += 1;
   }
+
   //Detects if 2 is pressed
   if (mouseX>l1 && mouseX <l1+width1 && mouseY>y3 && mouseY <y3+width1) {
     println("test2");
     LCD += "2";
-    fill(255);
+    memoryAddress1 *= 10;
+    memoryAddress1 += 2;
   }
-  //Detects if the 3 on the screen is pressed
+
+  //Detects if 3 is pressed
   if (mouseX>x2 && mouseX <x2+width1 && mouseY>y3 && mouseY <y3+width1) {
     println("test3");
     LCD += "3";
-    fill(255);
+    memoryAddress1 *= 10;
+    memoryAddress1 += 3;
   }
-  //Detects if the plus symbol is pressed
+
+  //Detects if 4 is pressed
+  if (mouseX>x1 && mouseX <x1+width1 && mouseY>y2 && mouseY <y2+width1) {
+    println("test4");
+    LCD += "4";
+    memoryAddress1 *= 10;
+    memoryAddress1 += 4;
+  }
+
+  //Detects if 5 is pressed
+  if (mouseX>l1 && mouseX <l1+width1 && mouseY>y2 && mouseY <y2+width1) {
+    println("test5");
+    LCD += "5";
+    memoryAddress1 *= 10;
+    memoryAddress1 += 5;
+  }
+
+  //Detects if 6 is pressed
+  if (mouseX>x2 && mouseX <x2+width1 && mouseY>y2 && mouseY <y2+width1) {
+    println("test6");
+    LCD += "6";
+    memoryAddress1 *= 10;
+    memoryAddress1 += 6;
+  }
+
+  // Detects if 7 is pressed
+  if (mouseX>x1 && mouseX <x1+width1 && mouseY>y1 && mouseY <y1+width1) {
+    println("test7");
+    LCD += "7";
+    memoryAddress1 *= 10;
+    memoryAddress1 += 7;
+  }
+
+  //Detects if 8 is pressed
+  if (mouseX>l1 && mouseX <l1+width1 && mouseY>y1 && mouseY <y1+width1) {
+    println("test8");
+    LCD += "8";
+    memoryAddress1 *= 10;
+    memoryAddress1 += 8;
+  }
+
+  //Detects if 9 is pressed
+  if (mouseX>x2 && mouseX <x2+width1 && mouseY>y1 && mouseY <y1+width1) {
+    println("test9");
+    LCD += "9";
+    memoryAddress1 *= 10;
+    memoryAddress1 += 9;
+  }
+
+  //Detects if addition is pressed
   if (mouseX>x3 && mouseX <x3+width1 && mouseY>y3 && mouseY <y3+width1) {
     println("test+");
-    LCD += "+";
-    fill(255);
+    LCD = "";
+    memoryAddress2 = memoryAddress1;
+    memoryAddress1 = 0;
+    operator = 1;
   }
-  //Detects if the 0 button is pressed
-  if (mouseX>x1 && mouseX <l1+width1 && mouseY>y4 && mouseY <y4+width1) {
-    println("test0");
-    LCD += "0";
-    fill(255);
-    //numberisvisible = true;
-  } 
-  //Detects if the = on the screen is pressed
-  if (mouseX>x2 && mouseX <x2+width1 && mouseY>y4 && mouseY <y4+width1) {
-    println("test=");
-    LCD += "=";
-    fill(255);
-  }
-  //Detects if the minus symbol is pressed
+
+  //Detects if subtraction is pressed
   if (mouseX>x3 && mouseX <x3+width1 && mouseY>y4 && mouseY <y4+width1) {
     println("test-");
-    LCD += "-";
-    fill(255);
+    LCD = "";
+    memoryAddress2 = memoryAddress1;
+    memoryAddress1 = 0;
+    operator = 2;
+  }
+
+  //Detects if multiplication is pressed
+  if (mouseX>x3 && mouseX <x3+width1 && mouseY>y2 && mouseY <y2+width1) {
+    println("test*");
+    LCD = "";
+    memoryAddress2 = memoryAddress1;
+    memoryAddress1 = 0;
+    operator = 3;
+  }
+
+  //Detects if division is pressed
+  if (mouseX>x3 && mouseX <x3+width1 && mouseY>y1 && mouseY <y1+width1) {
+    println("test/");
+    LCD = "";
+    memoryAddress2 = memoryAddress1;
+    memoryAddress1 = 0;
+    operator = 4;
+  }
+
+  //Detects if equals is pressed
+  if (mouseX>x2 && mouseX <x2+width1 && mouseY>y4 && mouseY <y4+width1) {
+    println("test=");
+    if (operator == 1) {
+      memoryAddress2 = memoryAddress2 + memoryAddress1;
+    }
+    if (operator == 2) {
+      memoryAddress2 = memoryAddress2 - memoryAddress1;
+    }
+    if (operator == 3) {
+      memoryAddress2 = memoryAddress2 * memoryAddress1;
+    }
+    if (operator == 4) {
+      memoryAddress2 = memoryAddress2 / memoryAddress1;
+    }
+    if (operator == 0) {
+      println("No operator choosen");
+    } else {
+      LCD = Float.toString(memoryAddress2);
+      memoryAddress1 = 0;
+      memoryAddress2 = -1;
+      operator = 0;
+    }
   }
 }
 void keyPressed() {
@@ -260,7 +311,106 @@ void keyPressed() {
   if (key == 'v') {
     coloredbutton = #A202DE;
   }
+  if (key == 'n') {
+    coloredbutton = 0;
+  }
   if (key == 'c') {
     LCD = "";
+  }
+  //Secondary keyboard functions
+  if (key == '0') {
+    println("test0");
+    LCD += "0";
+    memoryAddress1 *= 10;
+  }
+  if (key == '1') {
+    LCD += "1";
+    memoryAddress1 *= 10;
+    memoryAddress1 += 1;
+  }
+  if (key == '2') {
+    LCD += "2";
+    memoryAddress1 *= 10;
+    memoryAddress1 += 2;
+  }
+  if (key == '3') {
+    LCD += "3";
+    memoryAddress1 *= 10;
+    memoryAddress1 += 3;
+  }
+  if (key == '4') {
+    LCD += "4";
+    memoryAddress1 *= 10;
+    memoryAddress1 += 4;
+  }
+  if (key == '5') {
+    LCD += "5";
+    memoryAddress1 *= 10;
+    memoryAddress1 += 5;
+  }
+  if (key == '6') {
+    LCD += "6";
+    memoryAddress1 *= 10;
+    memoryAddress1 += 6;
+  }
+  if (key == '7') {
+    LCD += "7";
+    memoryAddress1 *= 10;
+    memoryAddress1 += 7;
+  }
+  if (key == '8') {
+    LCD += "8";
+    memoryAddress1 *= 10;
+    memoryAddress1 += 8;
+  }
+  if (key == '9') {
+    LCD += "9";
+    memoryAddress1 *= 10;
+    memoryAddress1 += 9;
+  }
+  if (key == '+') {
+    LCD = "";
+    memoryAddress2 = memoryAddress1;
+    memoryAddress1 = 0;
+    operator = 1;
+  }
+  if (key == '-') {
+    LCD = "";
+    memoryAddress2 = memoryAddress1;
+    memoryAddress1 = 0;
+    operator = 2;
+  }
+  if (key == '*') {
+    LCD = "";
+    memoryAddress2 = memoryAddress1;
+    memoryAddress1 = 0;
+    operator = 3;
+  }
+  if (key == '/') {
+    memoryAddress2 = memoryAddress1;
+    memoryAddress1 = 0;
+    operator = 4;
+  }
+  if (key == '=') {
+    if (operator == 1) {
+      memoryAddress2 = memoryAddress2 + memoryAddress1;
+    }
+    if (operator == 2) {
+      memoryAddress2 = memoryAddress2 - memoryAddress1;
+    }
+    if (operator == 3) {
+      memoryAddress2 = memoryAddress2 * memoryAddress1;
+    }
+    if (operator == 4) {
+      memoryAddress2 = memoryAddress2 / memoryAddress1;
+    }
+    if (operator == 0) {
+      println("No operator choosen");
+    } else {
+      LCD = Float.toString(memoryAddress2);
+      memoryAddress1 = 0;
+      memoryAddress2 = -1;
+      operator = 0;
+    }
   }
 }
